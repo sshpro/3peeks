@@ -1,0 +1,103 @@
+import dependencies.AndroidX
+import dependencies.Glide
+import dependencies.Google
+import dependencies.JUnit
+import dependencies.Square
+import dependencies.Versions
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk Versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.sshpro.threepeeks"
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.compose
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation AndroidX.core_ktx
+    implementation AndroidX.compose_ui
+    implementation AndroidX.compose_material
+    implementation AndroidX.compose_material_icons
+    implementation AndroidX.compose_ui_tooling_preview
+    implementation AndroidX.compose_activity
+    implementation AndroidX.compose_navigation
+    implementation AndroidX.lifecycle_runtime_ktx
+    implementation AndroidX.activity_ktx
+
+    implementation Google.hilt_android
+    implementation Google.ar_core
+    kapt Google.ap_hilt
+
+    implementation Square.moshi
+    implementation Square.moshi_kotlin
+    implementation Square.moshi_adapters
+    kapt Square.apt_moshi_kotlin_codegen
+
+    implementation Square.okhttp
+    implementation Square.retrofit
+    implementation Square.retrofit_moshi_converter
+
+    implementation Glide.glide
+    annotationProcessor Glide.glide_ap
+
+    implementation AndroidX.room
+    kapt AndroidX.ap_room
+
+    testImplementation JUnit.test_junit
+    androidTestImplementation AndroidX.android_test_ext_junit
+    androidTestImplementation AndroidX.android_test_espresso_core
+    androidTestImplementation AndroidX.android_test_compose_ui
+
+    testImplementation Square.test_okhttp_mock_webserver
+    androidTestImplementation Square.android_test_okhttp_mock_webserver
+
+    debugImplementation AndroidX.debug_compose_ui_tooling
+    debugImplementation AndroidX.compose_ui_test_manifest
+    testImplementation Google.test_hilt
+    kaptTest Google.ap_test_hilt
+
+    androidTestImplementation Google.android_test_hilt
+    kaptAndroidTest Google.ap_android_test_hilt
+}
