@@ -31,7 +31,7 @@ object Versions {
     const val moshi = "1.13.0"
     const val moshiKotlin = "1.9.3"
 
-    const val glide = "4.13.0"
+    const val coil = "2.1.0"
 
     const val junit = "4.13.2"
     const val androidJunitExt = "1.1.3"

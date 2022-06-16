@@ -1,5 +1,5 @@
 import dependencies.AndroidX
-import dependencies.Glide
+import dependencies.Coil
 import dependencies.Google
 import dependencies.JUnit
 import dependencies.Square
@@ -79,8 +79,7 @@ dependencies {
     implementation Square.retrofit
     implementation Square.retrofit_moshi_converter
 
-    implementation Glide.glide
-    annotationProcessor Glide.glide_ap
+    implementation Coil.coil
 
     implementation AndroidX.room
     kapt AndroidX.ap_room

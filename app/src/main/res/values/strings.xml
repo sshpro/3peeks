@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ThreePeeks</string>
+    <string name="title_albums">Albums</string>
+    <string name="default_error">Oops! That is not right</string>
+    <string name="dismiss">Dismiss</string>
+
+    <string name="content_description_thumbnail">Thumbnail</string>
+
 </resources>
