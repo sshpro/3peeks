@@ -24,6 +24,7 @@ fun AlbumItem(
         elevation = dimensionResource(id = R.dimen.card_elevation),
         shape = MaterialTheme.shapes.large,
         modifier = Modifier
+            .fillMaxWidth()
             .padding(horizontal = dimensionResource(id = R.dimen.card_side_margin))
             .padding(bottom = dimensionResource(id = R.dimen.card_bottom_margin))
     ) {

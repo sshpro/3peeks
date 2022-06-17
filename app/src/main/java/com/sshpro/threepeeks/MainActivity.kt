@@ -27,11 +27,11 @@ class MainActivity : ComponentActivity() {
                         )
                     },
                 ) {
-                    viewModel.getAlbums()
                     MainView(dataState = viewModel.albumsDataState.value)
                 }
             }
         }
+        viewModel.getAlbums()
     }
 }
 
