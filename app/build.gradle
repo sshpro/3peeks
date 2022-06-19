@@ -22,7 +22,7 @@ android {
         versionCode Versions.versionCode
         versionName Versions.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.sshpro.threepeeks.AndroidTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }

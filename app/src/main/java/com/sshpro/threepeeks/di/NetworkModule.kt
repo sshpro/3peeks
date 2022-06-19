@@ -26,14 +26,12 @@ class NetworkModule {
     @Provides
     fun providesMoshi(): Moshi {
         return Moshi.Builder()
-            .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
             .build()
     }
 
     @Singleton
     @Provides
     fun provideRetrofit(moshi: Moshi): Retrofit.Builder {
-        val baseurl = baseUrl()
         return Retrofit.Builder()
             .baseUrl(baseUrl())
             .addConverterFactory(MoshiConverterFactory.create(moshi))

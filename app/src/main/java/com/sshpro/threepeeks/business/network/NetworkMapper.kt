@@ -7,26 +7,13 @@ import javax.inject.Inject
 class NetworkMapper
 @Inject
 constructor() : Mapper<AlbumNetworkEntity, PhotoNetworkEntity, Album> {
-    override fun mapToDomain(album: AlbumNetworkEntity, photo: PhotoNetworkEntity): Album {
+    override fun mapToDomain(input1: AlbumNetworkEntity, input2: PhotoNetworkEntity): Album {
         return Album(
-            id = album.id,
-            title = album.title,
-            userId = album.userId,
-            photoTitle = photo.title,
-            thumbnailUrl = photo.thumbnailUrl
+            id = input1.id,
+            title = input1.title,
+            userId = input1.userId,
+            photoTitle = input2.title,
+            thumbnailUrl = input2.thumbnailUrl
         )
     }
-
-    override fun mapToDomainList(
-        albums: List<AlbumNetworkEntity>,
-        photos: List<PhotoNetworkEntity>
-    ): List<Album> {
-        return albums.map { album ->
-            mapToDomain(album, photos.find { photo ->
-                photo.albumId == album.id
-            } ?: PhotoNetworkEntity(0, 0, "", "", "")
-            )
-        }
-    }
-
 }
