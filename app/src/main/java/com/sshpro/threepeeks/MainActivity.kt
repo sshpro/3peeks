@@ -5,9 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import com.sshpro.threepeeks.business.DataState
+import com.sshpro.threepeeks.business.domain.Album
 import com.sshpro.threepeeks.compose.MainView
 import com.sshpro.threepeeks.compose.TopBarView
+import com.sshpro.threepeeks.compose.collectAsStateLifecycleAware
 import com.sshpro.threepeeks.ui.theme.ThreePeeksTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,17 +25,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             ThreePeeksTheme {
                 Scaffold(
-                    topBar = {
-                        TopBarView(
-                            title = stringResource(id = R.string.title_albums)
-                        )
-                    },
+                    topBar = { TopBarView(title = stringResource(id = R.string.title_albums)) },
                 ) {
-                    MainView(dataState = viewModel.albumsDataState.value)
+                    MainView(dataState = dataState())
                 }
             }
         }
-        viewModel.getAlbums()
+    }
+
+    @Composable
+    private fun dataState(): DataState<Album> {
+        return viewModel
+            .albums.collectAsStateLifecycleAware(initial = DataState.Loading)
+            .value
     }
 }
 
