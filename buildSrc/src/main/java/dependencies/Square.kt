@@ -13,6 +13,6 @@ object Square {
     const val test_okhttp_mock_webserver = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
     const val android_test_okhttp_mock_webserver =
         "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
-
+    const val rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava3:${Versions.retrofit}"
 
 }

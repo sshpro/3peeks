@@ -1,14 +1,16 @@
 package com.sshpro.threepeeks.business.network
 
+import io.reactivex.rxjava3.core.Observable
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PhotoService {
     @GET("photos")
-    suspend fun get(): List<PhotoNetworkEntity>
+    fun get(): Observable<List<PhotoNetworkEntity>>
 
     @GET("photos")
-    suspend fun get(
+    fun get(
         @Query("albumId") albumId: Int
-    ): List<PhotoNetworkEntity>
+    ): Observable<List<PhotoNetworkEntity>>
 }

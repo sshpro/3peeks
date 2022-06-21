@@ -11,7 +11,6 @@ import com.sshpro.threepeeks.business.DataState
 import com.sshpro.threepeeks.business.domain.Album
 import com.sshpro.threepeeks.compose.MainView
 import com.sshpro.threepeeks.compose.TopBarView
-import com.sshpro.threepeeks.compose.collectAsStateLifecycleAware
 import com.sshpro.threepeeks.ui.theme.ThreePeeksTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,13 +30,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        viewModel.getAlbums()
     }
 
     @Composable
-    private fun dataState(): DataState<Album> {
-        return viewModel
-            .albums.collectAsStateLifecycleAware(initial = DataState.Loading)
-            .value
+    private fun dataState(): DataState<List<Album>> {
+        return viewModel.albumState.value
     }
 }
 

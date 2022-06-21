@@ -36,4 +36,8 @@ object Versions {
     const val junit = "4.13.2"
     const val androidJunitExt = "1.1.3"
     const val espresso = "3.4.0"
+
+    const val rxJava = "3.1.5"
+    const val rxAndroid = "3.0.0"
+
 }

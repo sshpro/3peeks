@@ -28,5 +28,5 @@ object AndroidX {
     const val android_test_compose_ui = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
 
     const val debug_compose_ui_tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-
+    const val runtime_livedata = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
 }

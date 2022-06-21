@@ -18,12 +18,10 @@ class RepositoryModule {
     fun provideRepository(
         networkService: NetworkService,
         networkMapper: NetworkMapper,
-        coroutineDispatcher: CoroutineDispatcher
     ): AlbumRepository {
         return AlbumRepository(
             networkService = networkService,
             networkMapper = networkMapper,
-            coroutineDispatcher = coroutineDispatcher
         )
     }
 }

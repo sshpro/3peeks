@@ -1,8 +1,10 @@
 package com.sshpro.threepeeks.business.network
 
-interface NetworkService {
-    suspend fun getPhotos(): List<PhotoNetworkEntity>
-    suspend fun getPhotos(albumId: Int): List<PhotoNetworkEntity>
+import io.reactivex.rxjava3.core.Observable
+import retrofit2.Call
 
-    suspend fun getAlbums(): List<AlbumNetworkEntity>
+interface NetworkService {
+     fun getPhotos(): Observable<List<PhotoNetworkEntity>>
+     fun getPhotos(albumId: Int): Observable<List<PhotoNetworkEntity>>
+     fun getAlbums(): Observable<List<AlbumNetworkEntity>>
 }
