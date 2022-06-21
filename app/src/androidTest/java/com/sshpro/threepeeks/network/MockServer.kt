@@ -16,7 +16,7 @@ class MockServer {
 
         val jsonResponsePhotos = readJson("photos.json")
         val jsonResponsePhoto = readJson("photo.json")
-
+        const val jsonResponseEmpty = "{}"
         private fun readJson(path: String): String {
             val inputStream = MockServer::class.java.classLoader?.getResourceAsStream(path)
             return InputStreamReader(inputStream)
@@ -33,11 +33,12 @@ class MockServer {
 
         object TestDispatcher : Dispatcher() {
             override fun dispatch(request: RecordedRequest): MockResponse {
-                when (request.path) {
-                    "/test/photos",
-                    "/test/photos?albumId=1" -> return buildResponse(jsonResponsePhotos)
-                    "/test/albums" -> return buildResponse(jsonResponseAlbums)
-                }
+                if (request.path?.contains("test/photos?albumId=999") == true)
+                    return buildResponse(jsonResponseEmpty)
+                else if (request.path?.contains("test/photos") == true)
+                    return buildResponse(jsonResponsePhotos)
+                else if (request.path?.contains("test/albums") == true)
+                    return buildResponse(jsonResponseAlbums)
                 return MockResponse().setResponseCode(404)
             }
         }

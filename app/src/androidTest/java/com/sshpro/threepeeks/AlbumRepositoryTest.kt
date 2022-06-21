@@ -14,7 +14,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -55,13 +54,11 @@ class AlbumRepositoryTest {
 
     @Test
     fun shouldGetValidAlbums() {
-        val disposable = albumRepository.albums.subscribe { albums ->
-            assertNotNull(albums)
-            assertEquals(albums.size, 100)
-            assertEquals(albums[0], getTestAlbum())
-        }
-        compositeDisposable.add(disposable)
+        val albums = albumRepository.albums.blockingGet()
+        assertEquals(albums.size, 100)
+        assertEquals(albums[0], getTestAlbum())
     }
+
 
     private fun getTestAlbum(): Album {
         val albumNetworkEntity = moshi
