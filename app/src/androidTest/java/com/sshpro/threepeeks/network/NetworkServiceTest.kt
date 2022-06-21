@@ -7,7 +7,7 @@ import com.sshpro.threepeeks.business.network.NetworkService
 import com.sshpro.threepeeks.business.network.PhotoNetworkEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import kotlinx.coroutines.runBlocking
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -29,9 +29,11 @@ class NetworkServiceTest {
     lateinit var networkService: NetworkService
 
     @Inject
-    lateinit var moshi:Moshi
+    lateinit var moshi: Moshi
 
     lateinit var mockServer: MockWebServer
+
+    private val compositeDisposable = CompositeDisposable()
 
     @Before
     fun setup() {
@@ -41,15 +43,18 @@ class NetworkServiceTest {
 
     @After
     fun tearDown() {
+        compositeDisposable.clear()
         mockServer.shutdown()
     }
 
     @Test
-    fun shouldReceiveValidAlbums() = runBlocking {
-        val albums = networkService.getAlbums()
-        assertNotNull(albums)
-        assertEquals(albums.size, 100)
-        assertEquals(albums[0], getTestAlbumNetworkEntity())
+    fun shouldReceiveValidAlbums() {
+        val disposable = networkService.getAlbums().subscribe { albums ->
+            assertNotNull(albums)
+            assertEquals(albums.size, 100)
+            assertEquals(albums[0], getTestAlbumNetworkEntity())
+        }
+        compositeDisposable.add(disposable)
     }
 
     private fun getTestAlbumNetworkEntity(): AlbumNetworkEntity? {
@@ -58,11 +63,13 @@ class NetworkServiceTest {
     }
 
     @Test
-    fun shouldReceiveValidPhotos() = runBlocking {
-        val photo = networkService.getPhotos()
-        assertNotNull(photo)
-        assertEquals(photo.size, 10)
-        assertEquals(photo[0], getTestPhotoNetworkEntity())
+    fun shouldReceiveValidPhotos() {
+        val disposable = networkService.getPhotos().subscribe { photos ->
+            assertNotNull(photos)
+            assertEquals(photos.size, 10)
+            assertEquals(photos[0], getTestPhotoNetworkEntity())
+        }
+        compositeDisposable.add(disposable)
     }
 
     private fun getTestPhotoNetworkEntity(): PhotoNetworkEntity? {
@@ -71,10 +78,12 @@ class NetworkServiceTest {
     }
 
     @Test
-    fun shouldReceivePhotosForAlbum() = runBlocking {
-        val photos = networkService.getPhotos(albumId = 1)
-        assertNotNull(photos)
-        assertEquals(photos.size, 10)
-        assertEquals(photos[0], getTestPhotoNetworkEntity())
+    fun shouldReceivePhotosForAlbum() {
+        val disposable = networkService.getPhotos(albumId = 1).subscribe { photos ->
+            assertNotNull(photos)
+            assertEquals(photos.size, 10)
+            assertEquals(photos[0], getTestPhotoNetworkEntity())
+        }
+        compositeDisposable.add(disposable)
     }
 }

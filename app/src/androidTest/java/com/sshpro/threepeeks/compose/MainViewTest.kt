@@ -38,7 +38,7 @@ class MainViewTest {
     @Test
     fun shouldShowAlbumsView() {
         composeTestRule.setContent {
-            MainView(dataState = DataState.Success(TestData.albums.first()))
+            MainView(dataState = DataState.Success(TestData.albums))
         }
 
         composeTestRule
