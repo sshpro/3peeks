@@ -26,7 +26,7 @@ https://github.com/users/sshpro/projects/4/
 8. Third party libraries
    1. Retrofit
    2. Okhttp3
-   3. Colil
+   3. Coil
    4. Moshi
 
 ## RxJava Support
