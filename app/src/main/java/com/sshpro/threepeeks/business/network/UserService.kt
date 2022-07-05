@@ -1,9 +1,10 @@
 package com.sshpro.threepeeks.business.network
 
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface UserService {
     @GET("users")
-    suspend fun get(): List<UserNetworkEntity>
+    fun get(): Observable<List<UserNetworkEntity>>
 }

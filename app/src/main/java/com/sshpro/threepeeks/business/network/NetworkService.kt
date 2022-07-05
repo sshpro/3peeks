@@ -7,5 +7,5 @@ interface NetworkService {
      fun getPhotos(): Observable<List<PhotoNetworkEntity>>
      fun getPhotos(albumId: Int): Observable<List<PhotoNetworkEntity>>
      fun getAlbums(): Observable<List<AlbumNetworkEntity>>
-     fun getUsers(): List<UserNetworkEntity>
+     fun getUsers(): Observable<List<UserNetworkEntity>>
 }
