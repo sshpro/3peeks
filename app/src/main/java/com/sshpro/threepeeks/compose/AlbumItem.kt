@@ -45,7 +45,8 @@ fun AlbumItem(
             ) {
                 Text(album.photoTitle, style = MaterialTheme.typography.h5)
                 Text(album.title, style = MaterialTheme.typography.subtitle1)
-                Text(album.userId.toString(), style = MaterialTheme.typography.subtitle2)
+                Text(
+                    album.user, style = MaterialTheme.typography.subtitle2)
             }
         }
     }

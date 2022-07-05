@@ -31,7 +31,7 @@ class AlbumItemTest {
     fun testUserIdDisplayed() {
         setContent()
         composeTestRule
-            .onNodeWithText(album.userId.toString())
+            .onNodeWithText(album.user)
             .assertIsDisplayed()
     }
 

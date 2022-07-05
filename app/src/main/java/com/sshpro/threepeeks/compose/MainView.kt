@@ -11,13 +11,13 @@ import com.sshpro.threepeeks.business.domain.Album
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainView(
-    dataState: DataState<Album>
+    dataState: DataState<List<Album>>
 ) {
     when (dataState) {
-        is DataState.Success<Album> -> {
-            val albums = remember { mutableListOf<Album>()}
-            albums.add(dataState.data)
-            AlbumListView(albums = albums)
+        is DataState.Success<List<Album>> -> {
+//            val albums = remember { mutableListOf<Album>()}
+//            albums.add(dataState.data)
+            AlbumListView(albums = dataState.data)
         }
         is DataState.Error -> {
             ErrorView(dataState.exception.message ?: stringResource(id = R.string.default_error))

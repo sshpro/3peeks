@@ -55,17 +55,28 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    fun provideUserService(retrofit: Retrofit.Builder): UserService {
+        return retrofit
+            .build()
+            .create(UserService::class.java)
+    }
+
+    @Singleton
+    @Provides
     fun provideNetworkService(
         photoService: PhotoService,
-        albumService: AlbumService
+        albumService: AlbumService,
+        userService: UserService,
     ): NetworkService {
-        return NetworkServiceImpl(photoService = photoService, albumService = albumService)
+        return NetworkServiceImpl(photoService = photoService,
+            albumService = albumService,
+            userService = userService)
     }
 
 
     @Singleton
     @Provides
-    fun provideNetworkMapper(): Mapper<AlbumNetworkEntity, PhotoNetworkEntity, Album> {
+    fun provideNetworkMapper(): Mapper<AlbumNetworkEntity, PhotoNetworkEntity, UserNetworkEntity, Album> {
         return NetworkMapper()
     }
 }

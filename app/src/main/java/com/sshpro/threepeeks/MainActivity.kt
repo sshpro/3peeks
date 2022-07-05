@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun dataState(): DataState<Album> {
+    private fun dataState(): DataState<List<Album>> {
         return viewModel
             .albums.collectAsStateLifecycleAware(initial = DataState.Loading)
             .value

@@ -5,4 +5,6 @@ interface NetworkService {
     suspend fun getPhotos(albumId: Int): List<PhotoNetworkEntity>
 
     suspend fun getAlbums(): List<AlbumNetworkEntity>
+
+    suspend fun getUsers(): List<UserNetworkEntity>
 }

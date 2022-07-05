@@ -10,3 +10,6 @@ data class PhotoNetworkEntity(
     val url: String,
     val thumbnailUrl: String
 )
+
+fun defaultPhoto(): PhotoNetworkEntity =
+    PhotoNetworkEntity(id = 0, albumId = 0, title = "", url = "", thumbnailUrl = "")
