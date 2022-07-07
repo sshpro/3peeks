@@ -33,6 +33,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        staging {
+            initWith debug
+            applicationIdSuffix '.staging'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -54,12 +58,12 @@ android {
     }
     flavorDimensions 'env'
     productFlavors {
-        live {
+        free {
             dimension 'env'
         }
-        staging {
+        freemium {
             dimension 'env'
-            applicationIdSuffix '.staging'
+            applicationIdSuffix '.freemium'
         }
         qa {
             dimension 'env'
@@ -115,7 +119,5 @@ dependencies {
 
     androidTestImplementation Google.android_test_hilt
     kaptAndroidTest Google.ap_android_test_hilt
-
-    implementation 'com.facebook.stetho:stetho:1.5.1'
 
 }
