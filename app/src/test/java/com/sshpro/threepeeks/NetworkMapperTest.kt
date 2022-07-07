@@ -1,14 +1,13 @@
 package com.sshpro.threepeeks
 
-import com.sshpro.threepeeks.domain.model.Album
-import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
-import com.sshpro.threepeeks.domain.mappers.remote.NetworkAlbumMapper
-import com.sshpro.threepeeks.business.network.PhotoNetworkEntity
+import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
+import com.sshpro.threepeeks.domain.mappers.remote.NetworkPhotoMapper
+import com.sshpro.threepeeks.domain.model.Photo
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class NetworkMapperTest {
-    private val networkAlbumMapper = NetworkAlbumMapper()
+    private val networkPhotoMapper = NetworkPhotoMapper()
 
     @Test
     fun shouldMapToAlbum() {
@@ -19,20 +18,15 @@ class NetworkMapperTest {
             url = "url",
             thumbnailUrl = "thumb"
         )
-        val albumEntity = AlbumNetworkEntity(
-            id = 1,
-            userId = 1,
-            title = "title",
-        )
 
-        val album = networkAlbumMapper.mapToDomain(albumEntity, photoNetworkEntity)
+
+        val photo = networkPhotoMapper.mapToDomain(photoNetworkEntity)
         assertEquals(
-            album, Album(
+            photo, Photo(
                 id = 1,
-                title = "title",
-                userId = 1,
-                photoTitle = "PhotoTitle",
-                thumbnailUrl = "thumb"
+                title = "PhotoTitle",
+                albumId = 1,
+                url = "url"
             )
         )
     }

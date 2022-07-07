@@ -16,7 +16,7 @@ class AlbumListViewTest {
     @Test
     fun testAlbumListView() {
         composeTestRule.setContent {
-            AlbumListView(albums = TestData.albums)
+            AlbumListView(items = TestData.albums)
         }
 
         composeTestRule

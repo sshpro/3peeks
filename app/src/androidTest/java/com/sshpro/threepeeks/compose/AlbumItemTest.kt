@@ -5,6 +5,8 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import com.sshpro.threepeeks.compose.data.TestData
+import com.sshpro.threepeeks.presentation.album_list.AlbumListItem
+import com.sshpro.threepeeks.presentation.album_list.AlbumListItemView
 import org.junit.Rule
 import org.junit.Test
 
@@ -12,10 +14,17 @@ class AlbumItemTest {
     @get:Rule
     val composeTestRule = createComposeRule()
     private val album = TestData.albums.first()
+    private val albumListItem = AlbumListItem(
+        id = album.id,
+        title = album.title,
+        subTitle1 = album.photoTitle,
+        subTitle2 = album.user,
+        thumbnailUrl = album.thumbnailUrl,
+    )
 
     private fun setContent() {
         composeTestRule.setContent {
-            AlbumListItem(album)
+            AlbumListItemView(albumListItem)
         }
     }
 

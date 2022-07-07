@@ -1,11 +1,6 @@
 package com.sshpro.threepeeks.di
 
 import com.squareup.moshi.Moshi
-import com.sshpro.threepeeks.domain.mappers.Mapper
-import com.sshpro.threepeeks.domain.model.Album
-import com.sshpro.threepeeks.business.network.*
-import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
-import com.sshpro.threepeeks.domain.mappers.remote.NetworkAlbumMapper
 import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
 import com.sshpro.threepeeks.network.BASE_URL
 import dagger.Module
@@ -40,32 +35,9 @@ class FakeNetworkModule {
 
     @Singleton
     @Provides
-    fun provideFakeAlbumService(retrofit: Retrofit.Builder): AlbumService {
+    fun provideApi(retrofit: Retrofit.Builder): JSONPlaceholderApi {
         return retrofit
             .build()
-            .create(AlbumService::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun provideFakePhotoService(retrofit: Retrofit.Builder): PhotoService {
-        return retrofit
-            .build()
-            .create(PhotoService::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun provideFakeNetworkService(
-        albumService: AlbumService,
-        photoService: PhotoService
-    ): JSONPlaceholderApi {
-        return NetworkServiceImpl(albumService = albumService, photoService = photoService)
-    }
-
-    @Singleton
-    @Provides
-    fun provideFakeNetworkMapper(): Mapper<AlbumNetworkEntity, PhotoNetworkEntity, Album> {
-        return NetworkAlbumMapper()
+            .create(JSONPlaceholderApi::class.java)
     }
 }

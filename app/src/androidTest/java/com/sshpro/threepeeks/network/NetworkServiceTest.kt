@@ -2,9 +2,9 @@ package com.sshpro.threepeeks.network
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.squareup.moshi.Moshi
-import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
 import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
-import com.sshpro.threepeeks.business.network.PhotoNetworkEntity
+import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
+import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
