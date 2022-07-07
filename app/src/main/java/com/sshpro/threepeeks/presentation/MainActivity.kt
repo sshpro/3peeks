@@ -57,25 +57,10 @@ class MainActivity : ComponentActivity() {
                         type = NavType.IntType
                     }
                 )
-            ) { entry ->
-                val albumId = entry.arguments?.getInt("albumId") ?: 0
+            ) {
                 PhotosView()
             }
         }
     }
-
-//    @Composable
-//    private fun albumState(): DataState<List<Album>> {
-//        return viewModel.albums
-//            .collectAsStateLifecycleAware(initial = DataState.Loading)
-//            .value
-//    }
-//
-//    @Composable
-//    private fun photoState(): DataState<List<Photo>> {
-//        return viewModel.photos
-//            .collectAsStateLifecycleAware(initial = DataState.Loading)
-//            .value
-//    }
 }
 
