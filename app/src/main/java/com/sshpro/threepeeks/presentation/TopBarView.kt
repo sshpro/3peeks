@@ -7,6 +7,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import com.sshpro.threepeeks.R
 
 @Composable
@@ -19,7 +20,7 @@ fun TopBarView(
         },
         navigationIcon = {
             IconButton(onClick = { }) {
-                Icon(currentScreen.icon, "")
+                Icon(currentScreen.icon, stringResource(id = currentScreen.descriptionRes))
             }
         },
         backgroundColor = Color.Blue,

@@ -25,7 +25,7 @@ fun PhotoListView(
             dimensionResource(id = R.dimen.default_vertical_spacing)
         ),
         modifier = Modifier.testTag(TestTags.ALBUMS_VIEW),
-        contentPadding = PaddingValues(10.dp)
+        contentPadding = PaddingValues(10.dp),
     ) {
         items(
             count = items.size,
