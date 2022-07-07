@@ -1,5 +1,6 @@
 package com.sshpro.threepeeks.business.network
 
+import com.sshpro.threepeeks.business.network.data.PhotoNetworkEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 

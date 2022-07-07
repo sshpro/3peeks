@@ -4,6 +4,11 @@ import com.squareup.moshi.Moshi
 import com.sshpro.threepeeks.business.Mapper
 import com.sshpro.threepeeks.business.domain.Album
 import com.sshpro.threepeeks.business.network.*
+import com.sshpro.threepeeks.business.network.data.AlbumNetworkEntity
+import com.sshpro.threepeeks.business.network.mappers.NetworkAlbumMapper
+import com.sshpro.threepeeks.business.network.AlbumService
+import com.sshpro.threepeeks.business.network.NetworkService
+import com.sshpro.threepeeks.business.network.PhotoService
 import com.sshpro.threepeeks.network.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -16,7 +21,7 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [NetworkModule::class]
+    replaces = [RetrofitModule::class]
 )
 class FakeNetworkModule {
 
@@ -63,6 +68,6 @@ class FakeNetworkModule {
     @Singleton
     @Provides
     fun provideFakeNetworkMapper(): Mapper<AlbumNetworkEntity, PhotoNetworkEntity, Album> {
-        return NetworkMapper()
+        return NetworkAlbumMapper()
     }
 }

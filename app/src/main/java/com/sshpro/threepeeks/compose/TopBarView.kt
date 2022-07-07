@@ -12,18 +12,19 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sshpro.threepeeks.R
+import com.sshpro.threepeeks.Screens
 
 @Composable
 fun TopBarView(
-    title: String
+    currentScreen: Screens
 ) {
     TopAppBar(
         title = {
-            Text(text = title)
+            Text(text = currentScreen.name)
         },
         navigationIcon = {
             IconButton(onClick = { }) {
-                Icon(Icons.Filled.PhotoAlbum, "")
+                Icon(currentScreen.icon, "")
             }
         },
         backgroundColor = Color.Blue,

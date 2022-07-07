@@ -1,23 +1,23 @@
-package com.sshpro.threepeeks.compose
+package com.sshpro.threepeeks.compose.albums
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
 import com.sshpro.threepeeks.R
 import com.sshpro.threepeeks.business.DataState
 import com.sshpro.threepeeks.business.domain.Album
+import com.sshpro.threepeeks.compose.ErrorView
+import com.sshpro.threepeeks.compose.ProgressView
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainView(
-    dataState: DataState<List<Album>>
+fun AlbumView(
+    dataState: DataState<List<Album>>,
+    onAlbumClick: (Int) -> Unit = {},
 ) {
     when (dataState) {
         is DataState.Success<List<Album>> -> {
-//            val albums = remember { mutableListOf<Album>()}
-//            albums.add(dataState.data)
-            AlbumListView(albums = dataState.data)
+            AlbumListView(items = dataState.data, onClick = onAlbumClick)
         }
         is DataState.Error -> {
             ErrorView(dataState.exception.message ?: stringResource(id = R.string.default_error))

@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import com.sshpro.threepeeks.business.DataState
+import com.sshpro.threepeeks.compose.albums.AlbumView
 import com.sshpro.threepeeks.compose.data.TestData
 import org.junit.Rule
 import org.junit.Test
@@ -16,7 +17,7 @@ class MainViewTest {
     @Test
     fun shouldShowLoadingView() {
         composeTestRule.setContent {
-            MainView(dataState = DataState.Loading)
+            AlbumView(dataState = DataState.Loading)
         }
 
         composeTestRule
@@ -27,7 +28,7 @@ class MainViewTest {
     @Test
     fun shouldShowErrorView() {
         composeTestRule.setContent {
-            MainView(dataState = DataState.Error(Exception("Error")))
+            AlbumView(dataState = DataState.Error(Exception("Error")))
         }
 
         composeTestRule
@@ -38,7 +39,7 @@ class MainViewTest {
     @Test
     fun shouldShowAlbumsView() {
         composeTestRule.setContent {
-            MainView(dataState = DataState.Success(TestData.albums))
+            AlbumView(dataState = DataState.Success(TestData.albums))
         }
 
         composeTestRule

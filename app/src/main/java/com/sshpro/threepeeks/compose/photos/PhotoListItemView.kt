@@ -1,5 +1,6 @@
-package com.sshpro.threepeeks.compose
+package com.sshpro.threepeeks.compose.photos
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -14,11 +15,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import com.sshpro.threepeeks.R
-import com.sshpro.threepeeks.business.domain.Album
+import com.sshpro.threepeeks.business.domain.Photo
 
 @Composable
-fun AlbumItem(
-    album: Album
+fun PhotoListItemView(
+    item: Photo ,
+    onClick: (Int) -> Unit = {}
 ) {
     Card(
         elevation = dimensionResource(id = R.dimen.card_elevation),
@@ -27,13 +29,14 @@ fun AlbumItem(
             .fillMaxWidth()
             .padding(horizontal = dimensionResource(id = R.dimen.card_side_margin))
             .padding(bottom = dimensionResource(id = R.dimen.card_bottom_margin))
+            .clickable { onClick(item.id) }
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
             AsyncImage(
-                model = album.thumbnailUrl,
+                model = item.url,
                 placeholder = painterResource(R.drawable.ic_launcher_background),
                 contentDescription = stringResource(id = R.string.content_description_thumbnail),
                 contentScale = ContentScale.Crop,
@@ -43,10 +46,9 @@ fun AlbumItem(
                 modifier = Modifier
                     .padding(horizontal = dimensionResource(id = R.dimen.padding_default))
             ) {
-                Text(album.photoTitle, style = MaterialTheme.typography.h5)
-                Text(album.title, style = MaterialTheme.typography.subtitle1)
-                Text(
-                    album.user, style = MaterialTheme.typography.subtitle2)
+                Text(item.title, style = MaterialTheme.typography.h5)
+                Text(item.albumId.toString(), style = MaterialTheme.typography.subtitle1)
+//                Text(item.user, style = MaterialTheme.typography.subtitle2)
             }
         }
     }

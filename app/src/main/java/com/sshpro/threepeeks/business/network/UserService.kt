@@ -1,7 +1,7 @@
 package com.sshpro.threepeeks.business.network
 
+import com.sshpro.threepeeks.business.network.data.UserNetworkEntity
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface UserService {
     @GET("users")

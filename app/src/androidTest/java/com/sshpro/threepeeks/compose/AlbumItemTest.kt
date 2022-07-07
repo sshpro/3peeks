@@ -15,7 +15,7 @@ class AlbumItemTest {
 
     private fun setContent() {
         composeTestRule.setContent {
-            AlbumItem(album)
+            AlbumListItem(album)
         }
     }
 

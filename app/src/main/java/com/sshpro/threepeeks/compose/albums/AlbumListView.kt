@@ -1,4 +1,4 @@
-package com.sshpro.threepeeks.compose
+package com.sshpro.threepeeks.compose.albums
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -11,10 +11,14 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sshpro.threepeeks.R
 import com.sshpro.threepeeks.business.domain.Album
+import com.sshpro.threepeeks.compose.TestTags
 
 @ExperimentalFoundationApi
 @Composable
-fun AlbumListView(albums: List<Album>) {
+fun AlbumListView(
+    items: List<Album>,
+    onClick: (Int) -> Unit = {}
+) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(
             dimensionResource(id = R.dimen.default_vertical_spacing)
@@ -23,10 +27,18 @@ fun AlbumListView(albums: List<Album>) {
         contentPadding = PaddingValues(10.dp)
     ) {
         items(
-            count = albums.size,
-            key = { albums[it].id }
+            count = items.size,
+            key = { items[it].id }
         ) { index ->
-            AlbumItem(albums[index])
+            val album = items[index]
+            val item = AlbumListItem(
+                id = album.id,
+                title = album.title,
+                subTitle1 = album.photoTitle,
+                subTitle2 = album.user,
+                thumbnailUrl = album.thumbnailUrl
+            )
+            AlbumListItemView(item, onClick = onClick)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.sshpro.threepeeks.business.network
+package com.sshpro.threepeeks.business.network.data
 
 import com.squareup.moshi.JsonClass
 
