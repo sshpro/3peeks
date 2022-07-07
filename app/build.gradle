@@ -52,6 +52,20 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    flavorDimensions 'env'
+    productFlavors {
+        live {
+            dimension 'env'
+        }
+        staging {
+            dimension 'env'
+            applicationIdSuffix '.staging'
+        }
+        qa {
+            dimension 'env'
+            applicationIdSuffix '.qa'
+        }
+    }
 }
 
 dependencies {
@@ -101,4 +115,7 @@ dependencies {
 
     androidTestImplementation Google.android_test_hilt
     kaptAndroidTest Google.ap_android_test_hilt
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
 }
