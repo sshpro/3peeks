@@ -1,14 +1,13 @@
 package com.sshpro.threepeeks.di
 
-import com.sshpro.threepeeks.business.Mapper
-import com.sshpro.threepeeks.business.domain.Album
-import com.sshpro.threepeeks.business.domain.Photo
-import com.sshpro.threepeeks.business.network.NetworkService
-import com.sshpro.threepeeks.business.network.NetworkServiceImpl
-import com.sshpro.threepeeks.business.network.data.NetworkEntity
-import com.sshpro.threepeeks.business.network.data.PhotoNetworkEntity
-import com.sshpro.threepeeks.business.network.mappers.NetworkAlbumMapper
-import com.sshpro.threepeeks.business.network.mappers.NetworkPhotoMapper
+import com.sshpro.threepeeks.domain.mappers.Mapper
+import com.sshpro.threepeeks.domain.model.Album
+import com.sshpro.threepeeks.domain.model.Photo
+import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
+import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
+import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
+import com.sshpro.threepeeks.domain.mappers.remote.NetworkAlbumMapper
+import com.sshpro.threepeeks.domain.mappers.remote.NetworkPhotoMapper
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,11 +16,6 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class NetworkModule {
-
-    @Binds
-    abstract fun bindNetworkService(
-        networkServiceImpl: NetworkServiceImpl
-    ): NetworkService
 
     @Binds
     abstract fun bindNetworkAlbumMapper(

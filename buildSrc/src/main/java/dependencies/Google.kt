@@ -11,6 +11,6 @@ object Google {
 
     const val android_test_hilt = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
     const val ap_android_test_hilt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-
+    const val hilt_navigation_compose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
 
 }

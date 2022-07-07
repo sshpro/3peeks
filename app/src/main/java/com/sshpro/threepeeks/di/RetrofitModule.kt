@@ -1,9 +1,7 @@
 package com.sshpro.threepeeks.di
 
 import com.squareup.moshi.Moshi
-import com.sshpro.threepeeks.business.network.AlbumService
-import com.sshpro.threepeeks.business.network.PhotoService
-import com.sshpro.threepeeks.business.network.UserService
+import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,25 +35,10 @@ class RetrofitModule {
 
     @Singleton
     @Provides
-    fun providePhotoService(retrofit: Retrofit.Builder): PhotoService {
+    fun provideApi(retrofit: Retrofit.Builder): JSONPlaceholderApi {
         return retrofit
             .build()
-            .create(PhotoService::class.java)
+            .create(JSONPlaceholderApi::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideAlbumService(retrofit: Retrofit.Builder): AlbumService {
-        return retrofit
-            .build()
-            .create(AlbumService::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun provideUserService(retrofit: Retrofit.Builder): UserService {
-        return retrofit
-            .build()
-            .create(UserService::class.java)
-    }
 }

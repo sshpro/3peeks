@@ -1,6 +1,6 @@
 package com.sshpro.threepeeks.compose.data
 
-import com.sshpro.threepeeks.business.domain.Album
+import com.sshpro.threepeeks.domain.model.Album
 
 object TestData {
     val albums: List<Album> =

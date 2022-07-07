@@ -25,6 +25,7 @@ object Versions {
 
     const val hilt = "2.42"
     const val hiltLifecycleViewModel = "1.0.0-alpha03"
+    const val hiltNavigationCompose = "1.0.0"
 
     const val retrofit = "2.9.0"
     const val okHttp = "4.9.0"

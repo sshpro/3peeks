@@ -29,4 +29,5 @@ object AndroidX {
 
     const val debug_compose_ui_tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 
+    const val lifecycle_viewmodel_compose = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01"
 }

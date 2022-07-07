@@ -1,14 +1,12 @@
 package com.sshpro.threepeeks.di
 
 import com.squareup.moshi.Moshi
-import com.sshpro.threepeeks.business.Mapper
-import com.sshpro.threepeeks.business.domain.Album
+import com.sshpro.threepeeks.domain.mappers.Mapper
+import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.business.network.*
-import com.sshpro.threepeeks.business.network.data.AlbumNetworkEntity
-import com.sshpro.threepeeks.business.network.mappers.NetworkAlbumMapper
-import com.sshpro.threepeeks.business.network.AlbumService
-import com.sshpro.threepeeks.business.network.NetworkService
-import com.sshpro.threepeeks.business.network.PhotoService
+import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
+import com.sshpro.threepeeks.domain.mappers.remote.NetworkAlbumMapper
+import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
 import com.sshpro.threepeeks.network.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -61,7 +59,7 @@ class FakeNetworkModule {
     fun provideFakeNetworkService(
         albumService: AlbumService,
         photoService: PhotoService
-    ): NetworkService {
+    ): JSONPlaceholderApi {
         return NetworkServiceImpl(albumService = albumService, photoService = photoService)
     }
 

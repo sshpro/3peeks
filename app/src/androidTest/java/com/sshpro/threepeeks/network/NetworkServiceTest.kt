@@ -2,8 +2,8 @@ package com.sshpro.threepeeks.network
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.squareup.moshi.Moshi
-import com.sshpro.threepeeks.business.network.data.AlbumNetworkEntity
-import com.sshpro.threepeeks.business.network.NetworkService
+import com.sshpro.threepeeks.data.remote.dto.AlbumNetworkEntity
+import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
 import com.sshpro.threepeeks.business.network.PhotoNetworkEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -26,7 +26,7 @@ class NetworkServiceTest {
     val rule = HiltAndroidRule(this)
 
     @Inject
-    lateinit var networkService: NetworkService
+    lateinit var networkService: JSONPlaceholderApi
 
     @Inject
     lateinit var moshi:Moshi

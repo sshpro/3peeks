@@ -3,9 +3,10 @@ package com.sshpro.threepeeks.compose
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
-import com.sshpro.threepeeks.business.DataState
-import com.sshpro.threepeeks.compose.albums.AlbumView
+import com.sshpro.threepeeks.domain.DataState
+import com.sshpro.threepeeks.presentation.album_list.AlbumView
 import com.sshpro.threepeeks.compose.data.TestData
+import com.sshpro.threepeeks.presentation.TestTags
 import org.junit.Rule
 import org.junit.Test
 import java.lang.Exception
