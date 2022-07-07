@@ -8,6 +8,8 @@ object Versions {
     const val versionName = "1.0"
     const val jvmTarget = "1.8"
 
+    const val versionCodeApi25 = 2000 + versionCode
+    const val minSdk25 = 25
     const val android = "7.1.1"
     const val arCore = "1.25.0"
     const val coreKtx = "1.7.0"

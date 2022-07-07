@@ -56,7 +56,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    flavorDimensions 'version'
+    flavorDimensions 'version', 'api'
     productFlavors {
         free {
             dimension 'version'
@@ -68,6 +68,17 @@ android {
         qa {
             dimension 'version'
             applicationIdSuffix '.qa'
+        }
+        minApi25 {
+            dimension 'api'
+            minSdk Versions.minSdk25
+            versionCode Versions.versionCodeApi25
+            versionNameSuffix "-minApi25"
+        }
+        defaultApi {
+            dimension 'api'
+            minSdk android.defaultConfig.minSdk
+            versionCode android.defaultConfig.versionCode
         }
     }
 }
