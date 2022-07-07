@@ -56,17 +56,17 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    flavorDimensions 'env'
+    flavorDimensions 'version'
     productFlavors {
         free {
-            dimension 'env'
+            dimension 'version'
         }
         freemium {
-            dimension 'env'
+            dimension 'version'
             applicationIdSuffix '.freemium'
         }
         qa {
-            dimension 'env'
+            dimension 'version'
             applicationIdSuffix '.qa'
         }
     }
