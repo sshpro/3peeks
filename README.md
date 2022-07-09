@@ -15,6 +15,7 @@ https://github.com/users/sshpro/projects/4/
 
 1. MVVM
 2. Kotlin & Coroutines
+3. Clean architecture using UseCase
 3. Architecture components
    1. Jetpack Compose with Navigation
    2. Room 
@@ -28,6 +29,7 @@ https://github.com/users/sshpro/projects/4/
    2. Okhttp3
    3. Coil
    4. Moshi
+   
 
 ## RxJava Support
 
