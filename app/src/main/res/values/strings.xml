@@ -4,6 +4,13 @@
     <string name="default_error">Oops! That is not right</string>
     <string name="dismiss">Dismiss</string>
 
-    <string name="content_description_thumbnail">Thumbnail</string>
+
+<!--    Accessibility-->
+    <string name="content_description_thumbnail_album">Thumbnail for Album</string>
+    <string name="content_description_thumbnail_photo">Thumbnail for Photo</string>
+
+    <string name="content_description_albums_icon">Albums Screen</string>
+    <string name="content_description_photos_icon">Photos Screen</string>
+    <string name="action_see_photos">see photos for this album</string>
 
 </resources>

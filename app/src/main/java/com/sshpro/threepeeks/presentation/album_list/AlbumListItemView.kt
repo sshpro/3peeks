@@ -36,7 +36,9 @@ fun AlbumListItemView(
             .fillMaxWidth()
             .padding(horizontal = dimensionResource(id = R.dimen.card_side_margin))
             .padding(bottom = dimensionResource(id = R.dimen.card_bottom_margin))
-            .clickable { onClick(item.id) }
+            .clickable(onClickLabel = stringResource(id = R.string.action_see_photos)) {
+                onClick(item.id)
+            }
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -45,7 +47,7 @@ fun AlbumListItemView(
             AsyncImage(
                 model = item.thumbnailUrl,
                 placeholder = painterResource(R.drawable.ic_launcher_background),
-                contentDescription = stringResource(id = R.string.content_description_thumbnail),
+                contentDescription = stringResource(id = R.string.content_description_thumbnail_album),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.size(dimensionResource(id = R.dimen.photo_height))
             )

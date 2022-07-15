@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
 import coil.compose.AsyncImage
 import com.sshpro.threepeeks.R
 import com.sshpro.threepeeks.domain.model.Photo
@@ -32,13 +33,14 @@ fun PhotoListItemView(
             .clickable { onClick(item.id) }
     ) {
         Row(
+            modifier = Modifier.semantics(mergeDescendants = true){},
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
             AsyncImage(
                 model = item.url,
                 placeholder = painterResource(R.drawable.ic_launcher_background),
-                contentDescription = stringResource(id = R.string.content_description_thumbnail),
+                contentDescription = stringResource(id = R.string.content_description_thumbnail_photo),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.size(dimensionResource(id = R.dimen.photo_height))
             )
@@ -48,7 +50,6 @@ fun PhotoListItemView(
             ) {
                 Text(item.title, style = MaterialTheme.typography.h5)
                 Text(item.albumId.toString(), style = MaterialTheme.typography.subtitle1)
-//                Text(item.user, style = MaterialTheme.typography.subtitle2)
             }
         }
     }

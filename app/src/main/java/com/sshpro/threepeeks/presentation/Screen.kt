@@ -4,10 +4,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material.icons.filled.PhotoAlbum
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.sshpro.threepeeks.R
 
-enum class Screen(val icon: ImageVector) {
-    Albums(icon = Icons.Filled.PhotoAlbum),
-    Photos(icon = Icons.Filled.Photo);
+enum class Screen(val icon: ImageVector, val descriptionRes: Int) {
+    Albums(icon = Icons.Filled.PhotoAlbum, descriptionRes = R.string.content_description_thumbnail_album),
+    Photos(icon = Icons.Filled.Photo, descriptionRes = R.string.content_description_thumbnail_photo);
 
     companion object {
         fun fromRoute(route: String?): Screen =
