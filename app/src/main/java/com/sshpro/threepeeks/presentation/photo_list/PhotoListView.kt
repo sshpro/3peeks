@@ -10,9 +10,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sshpro.threepeeks.R
-import com.sshpro.threepeeks.domain.model.Photo
 import com.sshpro.threepeeks.presentation.TestTags
-import com.sshpro.threepeeks.presentation.photo_list.PhotoListItemView
 import com.sshpro.threepeeks.presentation.photo_list.model.PhotoUiEntity
 
 @ExperimentalFoundationApi

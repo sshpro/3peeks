@@ -6,8 +6,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.sshpro.threepeeks.R
-import com.sshpro.threepeeks.domain.DataState
-import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.presentation.ErrorView
 import com.sshpro.threepeeks.presentation.ProgressView
 import com.sshpro.threepeeks.presentation.Screen

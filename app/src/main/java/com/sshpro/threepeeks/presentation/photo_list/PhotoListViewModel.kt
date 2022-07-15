@@ -7,11 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sshpro.threepeeks.data.Mapper
 import com.sshpro.threepeeks.domain.DataState
-import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.domain.model.Photo
 import com.sshpro.threepeeks.domain.use_case.GetPhotosByAlbumIdUseCase
 import com.sshpro.threepeeks.presentation.UiState
-import com.sshpro.threepeeks.presentation.album_list.model.AlbumUiEntity
 import com.sshpro.threepeeks.presentation.photo_list.model.PhotoUiEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map

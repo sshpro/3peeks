@@ -4,8 +4,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sshpro.threepeeks.domain.DataState
 import com.sshpro.threepeeks.data.Mapper
+import com.sshpro.threepeeks.domain.DataState
 import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.domain.use_case.GetAlbumsUseCase
 import com.sshpro.threepeeks.presentation.UiState

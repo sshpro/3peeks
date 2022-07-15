@@ -1,13 +1,13 @@
 package com.sshpro.threepeeks.data.repository
 
-import com.sshpro.threepeeks.domain.model.Album
-import com.sshpro.threepeeks.domain.model.Photo
+import com.sshpro.threepeeks.data.Mapper
 import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
 import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
 import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
 import com.sshpro.threepeeks.data.remote.dto.defaultPhoto
 import com.sshpro.threepeeks.data.remote.dto.defaultUser
-import com.sshpro.threepeeks.data.Mapper
+import com.sshpro.threepeeks.domain.model.Album
+import com.sshpro.threepeeks.domain.model.Photo
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext

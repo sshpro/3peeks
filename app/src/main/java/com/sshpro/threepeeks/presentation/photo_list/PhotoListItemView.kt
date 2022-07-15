@@ -16,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import coil.compose.AsyncImage
 import com.sshpro.threepeeks.R
-import com.sshpro.threepeeks.domain.model.Photo
 import com.sshpro.threepeeks.presentation.photo_list.model.PhotoUiEntity
 
 @Composable

@@ -1,8 +1,8 @@
 package com.sshpro.threepeeks.domain.use_case
 
+import com.sshpro.threepeeks.data.repository.AlbumRepository
 import com.sshpro.threepeeks.domain.DataState
 import com.sshpro.threepeeks.domain.model.Photo
-import com.sshpro.threepeeks.data.repository.AlbumRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

@@ -1,8 +1,8 @@
 package com.sshpro.threepeeks.domain.mappers.remote
 
-import com.sshpro.threepeeks.domain.model.Album
-import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
 import com.sshpro.threepeeks.data.Mapper
+import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
+import com.sshpro.threepeeks.domain.model.Album
 import javax.inject.Inject
 
 class NetworkAlbumMapper
