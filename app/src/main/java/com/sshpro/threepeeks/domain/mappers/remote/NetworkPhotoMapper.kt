@@ -2,7 +2,7 @@ package com.sshpro.threepeeks.domain.mappers.remote
 
 import com.sshpro.threepeeks.domain.model.Photo
 import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
-import com.sshpro.threepeeks.domain.mappers.Mapper
+import com.sshpro.threepeeks.data.Mapper
 import javax.inject.Inject
 
 class NetworkPhotoMapper

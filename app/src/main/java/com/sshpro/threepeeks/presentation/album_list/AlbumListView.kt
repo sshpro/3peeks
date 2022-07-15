@@ -14,11 +14,12 @@ import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.presentation.TestTags
 import com.sshpro.threepeeks.presentation.album_list.AlbumListItem
 import com.sshpro.threepeeks.presentation.album_list.AlbumListItemView
+import com.sshpro.threepeeks.presentation.album_list.model.AlbumUiEntity
 
 @ExperimentalFoundationApi
 @Composable
 fun AlbumListView(
-    items: List<Album>,
+    items: List<AlbumUiEntity>,
     onClick: (Int) -> Unit = {}
 ) {
     LazyColumn(

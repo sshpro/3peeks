@@ -1,13 +1,12 @@
 package com.sshpro.threepeeks.di
 
-import com.sshpro.threepeeks.domain.mappers.Mapper
-import com.sshpro.threepeeks.domain.model.Album
-import com.sshpro.threepeeks.domain.model.Photo
-import com.sshpro.threepeeks.data.remote.JSONPlaceholderApi
+import com.sshpro.threepeeks.data.Mapper
 import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
 import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
 import com.sshpro.threepeeks.domain.mappers.remote.NetworkAlbumMapper
 import com.sshpro.threepeeks.domain.mappers.remote.NetworkPhotoMapper
+import com.sshpro.threepeeks.domain.model.Album
+import com.sshpro.threepeeks.domain.model.Photo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

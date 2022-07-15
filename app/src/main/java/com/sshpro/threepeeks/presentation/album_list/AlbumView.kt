@@ -11,6 +11,8 @@ import com.sshpro.threepeeks.domain.model.Album
 import com.sshpro.threepeeks.presentation.ErrorView
 import com.sshpro.threepeeks.presentation.ProgressView
 import com.sshpro.threepeeks.presentation.Screen
+import com.sshpro.threepeeks.presentation.UiState
+import com.sshpro.threepeeks.presentation.album_list.model.AlbumUiEntity
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -19,15 +21,15 @@ fun AlbumView(
     viewModel: AlbumListViewModel = hiltViewModel(),
 ) {
     when (val state = viewModel.state.value) {
-        is DataState.Success<List<Album>> -> {
+        is UiState.Success<List<AlbumUiEntity>> -> {
             AlbumListView(items = state.data) { albumId ->
                 navController.navigate("${Screen.Photos.name}/$albumId")
             }
         }
-        is DataState.Error -> {
-            ErrorView(state.exception.message ?: stringResource(id = R.string.default_error))
+        is UiState.Error -> {
+            ErrorView(state.message ?: stringResource(id = R.string.default_error))
         }
-        is DataState.Loading -> {
+        is UiState.Loading -> {
             ProgressView()
         }
     }

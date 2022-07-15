@@ -17,10 +17,11 @@ import androidx.compose.ui.semantics.semantics
 import coil.compose.AsyncImage
 import com.sshpro.threepeeks.R
 import com.sshpro.threepeeks.domain.model.Photo
+import com.sshpro.threepeeks.presentation.photo_list.model.PhotoUiEntity
 
 @Composable
 fun PhotoListItemView(
-    item: Photo,
+    item: PhotoUiEntity,
     onClick: (Int) -> Unit = {}
 ) {
     Card(

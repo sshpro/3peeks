@@ -1,7 +1,7 @@
 package com.sshpro.threepeeks.di
 
-import com.sshpro.threepeeks.data.repository.AlbumRepositoryImpl
 import com.sshpro.threepeeks.data.repository.AlbumRepository
+import com.sshpro.threepeeks.data.repository.AlbumRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

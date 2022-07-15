@@ -7,7 +7,7 @@ import com.sshpro.threepeeks.data.remote.dto.NetworkEntity
 import com.sshpro.threepeeks.data.remote.dto.PhotoNetworkEntity
 import com.sshpro.threepeeks.data.remote.dto.defaultPhoto
 import com.sshpro.threepeeks.data.remote.dto.defaultUser
-import com.sshpro.threepeeks.domain.mappers.Mapper
+import com.sshpro.threepeeks.data.Mapper
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
