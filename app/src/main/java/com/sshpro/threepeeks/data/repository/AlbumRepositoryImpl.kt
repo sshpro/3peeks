@@ -19,7 +19,7 @@ class AlbumRepositoryImpl @Inject constructor(
     private val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : AlbumRepository {
 
-    private val photoEntities by lazy {
+    private val photosJob by lazy {
         async(coroutineDispatcher) {
             api.getPhotos()
         }
@@ -30,29 +30,29 @@ class AlbumRepositoryImpl @Inject constructor(
         block: suspend CoroutineScope.() -> T
     ): Deferred<T> {
         return CoroutineScope(coroutineContext).async {
+            ensureActive()
             block()
         }
     }
 
     override suspend fun getAlbums(): List<Album> {
-        val albumEntities = async(coroutineDispatcher) { api.getAlbums() }
-        val userEntities = async(coroutineDispatcher) { api.getUsers() }
-
-        val albums = albumEntities.await().map { albumEntity ->
-            val photo = photoEntities.await().find { photoNetworkEntity ->
-                albumEntity.id == photoNetworkEntity.albumId
+        val albumJob = async(coroutineDispatcher) { api.getAlbums() }
+        val userJob = async(coroutineDispatcher) { api.getUsers() }
+        val albums = albumJob.await().map { albumNetworkEntity ->
+            val photo = photosJob.await().find { photoNetworkEntity ->
+                albumNetworkEntity.id == photoNetworkEntity.albumId
             } ?: defaultPhoto()
-            val user = userEntities.await().find { userNetworkEntity ->
-                albumEntity.userId == userNetworkEntity.id
+            val user = userJob.await().find { userNetworkEntity ->
+                albumNetworkEntity.userId == userNetworkEntity.id
             } ?: defaultUser()
-            val networkEntity = NetworkEntity(album = albumEntity, photo = photo, user = user)
+            val networkEntity = NetworkEntity(album = albumNetworkEntity, photo = photo, user = user)
             networkAlbumMapper.mapToDomain(networkEntity)
         }
         return albums
     }
 
     override suspend fun getPhotos(albumId: Int): List<Photo> {
-        return photoEntities.await()
+        return photosJob.await()
             .filter { photo -> photo.albumId == albumId }
             .map { filtered -> networkPhotoMapper.mapToDomain(filtered) }
     }
